@@ -2,7 +2,7 @@
 
 ---
 
-Run sing-box in a koolshare router like ac86u
+Run sing-box in a koolshare router like ac86u, enable jffs swap. If not, may have no enough memory even when MEMLIMIT=100MiB setted in singbox.sh.
 
 
 1. On router:
@@ -29,7 +29,7 @@ Confirm works fine before next step, If not, just press ctrl+c and edit your con
 
 4. Reboot router and see http://192.168.1.1:9090/ui/#/overview. If something wrong:
 ```
-./singbox stop.
+./singbox.sh stop.
 ```
 
 ---
