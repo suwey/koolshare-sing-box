@@ -153,6 +153,14 @@
         "action": "hijack-dns"
       },
       {
+        "domain_suffix": ["domainMustGoDirect.com"],
+        "outbound": "🐢Direct"
+      },
+      {
+        "domain_suffix": ["domainMustGoProxy.com"],
+        "outbound": "🚀FinalOut"
+      },
+      {
         "rule_set": ["geosite-private"],
         "outbound": "🐢Direct"
       },

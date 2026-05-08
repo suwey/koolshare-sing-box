@@ -32,7 +32,6 @@
         "action": "hijack-dns"
       },
       {
-<<<<<<< HEAD
         "domain_suffix": ["ddbbffcdn.com", "dynv6.com"],
         "outbound": "🐢Direct"
       },
@@ -41,8 +40,6 @@
         "outbound": "🚀FinalOut"
       },
       {
-=======
->>>>>>> e1c50af (tested on ac86u only)
         "rule_set": [
           "geosite-private"
         ],
@@ -163,8 +160,4 @@
       }
     ]
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e1c50af (tested on ac86u only)

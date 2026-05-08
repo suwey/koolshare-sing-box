@@ -22,9 +22,16 @@ scp -O M99sing.sh 192.168.1.1:/koolshare/init.d/
 3. On router:
 ```
 chmod +x /jffs/sing-box/singbox.sh /koolshare/init.d/M99sing.sh
+cd /jffs/sing-box/
+./singbox.sh start
 ```
-4. Reboot router and see http://192.168.1.1:9090/ui/#/overview.
+Confirm works fine before next step, If not, just press ctrl+c and edit your config.json then start and check again.
+
+4. Reboot router and see http://192.168.1.1:9090/ui/#/overview. If something wrong:
+```
+./singbox stop.
+```
 
 ---
 
-The subscribe.py only parse anytls node.
+The subscribe.py only parse anytls nodes.
