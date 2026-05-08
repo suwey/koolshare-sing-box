@@ -1,0 +1,170 @@
+    {
+      "tag": "🐢Direct",
+      "type": "direct"
+    }
+  ],
+  "route": {
+    "default_domain_resolver": {
+      "server": "AliDNS"
+    },
+    "default_interface": "ppp0",
+    "auto_detect_interface": false,
+    "final": "🚀FinalOut",
+    "rules": [
+      {
+        "inbound": [
+          "mixed-in",
+          "tun-in"
+        ],
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+<<<<<<< HEAD
+        "domain_suffix": ["ddbbffcdn.com", "dynv6.com"],
+        "outbound": "🐢Direct"
+      },
+      {
+        "domain_suffix": ["civitai.com"],
+        "outbound": "🚀FinalOut"
+      },
+      {
+=======
+>>>>>>> e1c50af (tested on ac86u only)
+        "rule_set": [
+          "geosite-private"
+        ],
+        "outbound": "🐢Direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "🐢Direct"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "🐢Direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "🚀FinalOut"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "action": "reject"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all"
+        ],
+        "action": "reject"
+      },
+      {
+        "protocol": "bittorrent",
+        "outbound": "🐢Direct"
+      },
+      {
+        "rule_set": [
+          "geosite-category-games@cn"
+        ],
+        "outbound": "🐢Direct"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-!cn"
+        ],
+        "outbound": "🚀FinalOut"
+      },
+      {
+        "rule_set": [
+          "geosite-cn"
+        ],
+        "outbound": "🐢Direct"
+      },
+      {
+        "rule_set": [
+          "geoip-cn"
+        ],
+        "outbound": "🐢Direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geosite-category-games@cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-games@cn.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
+        "download_detour": "🐢Direct",
+        "update_interval": "3d"
+      }
+    ]
+  }
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> e1c50af (tested on ac86u only)

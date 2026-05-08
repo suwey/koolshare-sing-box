@@ -1,0 +1,106 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "error",
+    "output": "/jffs/sing-box/sing-box.log",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "/jffs/sing-box/ui",
+      "secret": "sk-lm-dD5FgtPy:MGdriLtWm6l9ao05o6uK",
+      "default_mode": "rule",
+      "access_control_allow_origin": "*",
+      "access_control_allow_private_network": false
+    },
+    "cache_file": {
+      "enabled": true,
+      "store_rdrc": true
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "ProxyDNS",
+        "type": "https",
+        "server": "8.8.8.8",
+        "detour": "🚀FinalOut"
+      },
+      {
+        "tag": "DirectDNS",
+        "type": "https",
+        "server": "dns.alidns.com",
+        "domain_resolver": "AliDNS"
+      },
+      {
+        "tag": "AliDNS",
+        "type": "udp",
+        "server": "223.5.5.5"
+      }
+    ],
+    "rules": [
+      {
+        "clash_mode": "direct",
+        "server": "AliDNS"
+      },
+      {
+        "clash_mode": "global",
+        "server": "ProxyDNS"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all"
+        ],
+        "server": "AliDNS",
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "rule_set": [
+          "geosite-category-games@cn"
+        ],
+        "server": "AliDNS"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-!cn"
+        ],
+        "server": "ProxyDNS"
+      },
+      {
+        "rule_set": [
+          "geosite-cn"
+        ],
+        "server": "AliDNS"
+      }
+    ],
+    "final": "ProxyDNS",
+    "strategy": "prefer_ipv4",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": true,
+    "reverse_mapping": false
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 1500,
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "gvisor"
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 7890
+    }
+  ],
+  "outbounds": [
