@@ -132,7 +132,7 @@ def parse_nodes(source_decode, nodes_json, filters):
         "tag": "🚀FinalOut",
         "type": "urltest",
         "interrupt_exist_connections": False,
-        "interval": "30s",
+        "interval": "60s",
         "idle_timeout": "1440m"
     }
     selector['outbounds'] = []

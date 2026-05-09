@@ -11,8 +11,10 @@ SINGBOX_BIN="$SINGBOX_DIR/sing-box"
 CONFIG="$SINGBOX_DIR/config.json"
 LOG="$SINGBOX_DIR/sing-box.log"
 MEM_LIMIT="100MiB"
+RUNING_CONFIG="/tmp/sing-box-running-config.json"
 
 do_stop() {
+    rm -rf $RUNING_CONFIG
     killall sing-box 2>/dev/null
     echo "[sing-box] stopped at $(date "+%Y-%m-%d %H:%M:%S")."
 }
@@ -30,7 +32,12 @@ do_start() {
         exit 1
     fi
 
-    GOMEMLIMIT=$MEM_LIMIT $SINGBOX_BIN run -c $CONFIG -D $SINGBOX_DIR > $LOG 2>&1
+    cp $CONFIG $RUNING_CONFIG
+    while [ -f $RUNING_CONFIG ]; do
+        [ $CONFIG -nt $RUNING_CONFIG ] && cp $CONFIG $RUNING_CONFIG
+        $(GOMEMLIMIT=$MEM_LIMIT $SINGBOX_BIN run -c $RUNING_CONFIG -D $SINGBOX_DIR > $LOG 2>&1)
+        sleep 5
+    done
 }
 
 case "$1" in

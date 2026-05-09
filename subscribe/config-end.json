@@ -32,7 +32,13 @@
         "action": "hijack-dns"
       },
       {
-        "domain_suffix": ["ddbbffcdn.com", "dynv6.com"],
+        "domain_suffix": [
+          "ddbbffcdn.com",
+          "dynv6.com",
+          "b8bf.com",
+          "ppqrrs.com",
+          "baofeng10.com"
+        ],
         "outbound": "🐢Direct"
       },
       {
