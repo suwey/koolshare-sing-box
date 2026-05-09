@@ -31,6 +31,7 @@ Confirm works fine before next step, If not, just press ctrl+c and edit your con
 ```
 ./singbox.sh stop.
 ```
+Notice: Power cycling may cause issue!
 
 ---
 
