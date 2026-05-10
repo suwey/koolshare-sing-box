@@ -98,8 +98,7 @@
       "tag": "🚀FinalOut",
       "type": "urltest",
       "interrupt_exist_connections": false,
-      "interval": "30s",
-      "idle_timeout": "1440m",
+      "interval": "60s",
       "outbounds": ["01"]
     },
     {
