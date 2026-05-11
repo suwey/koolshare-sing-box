@@ -39,11 +39,4 @@ Notice: Power cycling may cause issue!
 ---
 
 ## Patch for clash api
-
-No need to reboot router for change config: 
-1. Edit /jffs/sing-box/config.json then click "Restart Core" in web ui.
-2. Use "Pull Config" function in web ui.
-
-All will restart sing-box in 5 seconds.
-
-Notice: Tried author's signal HUP reload implemention to reload config, but always run to "open tun: TUNSETIFF: device or resource busy", only restart hole process can fix it, just use "Restart Core" instead of "Reload Config" function in web ui.
+Edit /jffs/sing-box/config.json then click "Restart Core" in web ui will reload config and restart, No need to reboot router.

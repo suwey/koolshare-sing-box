@@ -9,7 +9,7 @@
     "clash_api": {
       "external_controller": "0.0.0.0:9090",
       "external_ui": "/jffs/sing-box/ui",
-      "secret": "sk-lm-dD5FgtPy:MGdriLtWm6l9ao05o6uK",
+      "secret": "sk-lm-dD",
       "default_mode": "rule",
       "access_control_allow_origin": "*",
       "access_control_allow_private_network": false
