@@ -2,7 +2,7 @@
 
 ---
 
-Run sing-box in a koolshare router like ac86u, enable jffs swap. If not, may have no enough memory even when MEMLIMIT=100MiB setted in singbox.sh.
+Run sing-box in a koolshare router like ac86u, enabled jffs swap. If not, may have no enough memory even when MEMLIMIT=100MiB setted in singbox.sh.
 
 
 1. On router:
@@ -39,4 +39,4 @@ Notice: Power cycling may cause issue!
 ---
 
 ## Patch for clash api
-Edit /jffs/sing-box/config.json then click "Restart Core" in web ui will reload config and restart, No need to reboot router.
+No need to reboot router for config changes, edit or scp new config to /jffs/sing-box/config.json then click "Restart Core" in UI.

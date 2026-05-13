@@ -30,7 +30,7 @@ do_start() {
         exit 1
     fi
 
-    $(trap - ;GOMEMLIMIT=$MEM_LIMIT $SINGBOX_BIN run -c $CONFIG -D $SINGBOX_DIR > $LOG 2>&1)
+    $(GOMEMLIMIT=$MEM_LIMIT $SINGBOX_BIN run -c $CONFIG -D $SINGBOX_DIR > $LOG 2>&1)
     echo "[sing-box] started at $(date "+%Y-%m-%d %H:%M:%S")."
 }
 
@@ -43,7 +43,7 @@ case "$1" in
         ;;
     restart)
         do_stop
-        sleep 8
+        sleep 2
         do_start
         ;;
     status)

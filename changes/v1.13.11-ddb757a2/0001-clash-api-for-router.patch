@@ -1,27 +1,26 @@
-From a252075b11df1ed3d0c9904ee80a4546aed6871d Mon Sep 17 00:00:00 2001
+From a4d00f74e9eaf0c111204d2953f770f5eb78715c Mon Sep 17 00:00:00 2001
 From: sssuuwww <sssuuwww@nobody.com>
-Date: Mon, 11 May 2026 08:30:19 +0800
-Subject: [PATCH] clash-api-for-router
+Date: Wed, 13 May 2026 18:22:23 +0800
+Subject: [PATCH] only full restart can avoid weird memory leak
 
 ---
- experimental/clashapi/restart.go | 23 +++++++++++++++++++++++
+ experimental/clashapi/restart.go | 22 ++++++++++++++++++++++
  experimental/clashapi/server.go  |  1 +
  protocol/tun/inbound.go          | 28 +++++++++++++++++++++++-----
- 3 files changed, 47 insertions(+), 5 deletions(-)
+ 3 files changed, 46 insertions(+), 5 deletions(-)
  create mode 100644 experimental/clashapi/restart.go
 
 diff --git a/experimental/clashapi/restart.go b/experimental/clashapi/restart.go
 new file mode 100644
-index 00000000..30c9433e
+index 00000000..6eaa3543
 --- /dev/null
 +++ b/experimental/clashapi/restart.go
-@@ -0,0 +1,23 @@
+@@ -0,0 +1,22 @@
 +package clashapi
 +
 +import (
 +	"net/http"
-+	"os"
-+	"syscall"
++	"os/exec"
 +
 +	"github.com/sagernet/sing-box/log"
 +
@@ -36,7 +35,7 @@ index 00000000..30c9433e
 +}
 +
 +func restart(w http.ResponseWriter, r *http.Request) {
-+	syscall.Kill(os.Getpid(), syscall.SIGHUP)
++	exec.Command("/jffs/sing-box/singbox.sh", "restart").Start()
 +	render.NoContent(w, r)
 +}
 diff --git a/experimental/clashapi/server.go b/experimental/clashapi/server.go
